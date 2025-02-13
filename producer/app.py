@@ -1,6 +1,6 @@
 import pika
 import time
-import random
+
 
 RABBITMQ_HOST = "rabbitmq"
 RABBITMQ_USER = "user"
@@ -22,7 +22,7 @@ channel.queue_declare(queue=QUEUE_NAME, durable=True)
 
 messageId = 1
 while True:
-    message = f"Sending MessageId: {messageId}"
+    message = f"Message {messageId}"
     channel.basic_publish(
         exchange='',
         routing_key=QUEUE_NAME,
@@ -30,5 +30,5 @@ while True:
         properties=pika.BasicProperties(delivery_mode=2)
     )
     print(f" [x] Sent '{message}'")
-    time.sleep(random.randint(1, 4))
     messageId += 1
+    time.sleep(2)

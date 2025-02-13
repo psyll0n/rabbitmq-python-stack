@@ -1,6 +1,5 @@
 import pika
 import time
-import random
 
 
 RABBITMQ_HOST = "rabbitmq"
@@ -22,9 +21,7 @@ channel = connection.channel()
 channel.queue_declare(queue=QUEUE_NAME, durable=True)
 
 def callback(ch, method, properties, body):
-    processing_time = random.randint(0, 6)
-    print(f" [x] Received {body.decode()}, will process in {processing_time} seconds to process...")
-    time.sleep(processing_time)
+    print(f" [x] Received {body.decode()}")
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
