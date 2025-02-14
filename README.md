@@ -6,6 +6,4 @@ This repository was created by using the YouTube playlist linked below.
 
 Reference: [RabbitMQ Tutorial](https://youtube.com/playlist?list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4IvO&si=Wknp4RcnAcUmM2HZ)
 
-Also see...
-
-RabbitMQ Tutorials [RabbitMQ Tutorials](https://www.rabbitmq.com/tutorials)
+Also see, [RabbitMQ Tutorials](https://www.rabbitmq.com/tutorials).
