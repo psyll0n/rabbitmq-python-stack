@@ -1,6 +1,6 @@
-import pika
 import time
-from pika.exchange_type import ExchangeType
+import pika
+
 
 RABBITMQ_HOST = "rabbitmq"
 RABBITMQ_USER = "user"
@@ -12,15 +12,16 @@ credentials = pika.PlainCredentials(RABBITMQ_USER, RABBITMQ_PASS)
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=RABBITMQ_HOST, credentials=credentials))
 channel = connection.channel()
 
-channel.exchange_declare(exchange="headersexchange", exchange_type=ExchangeType.headers)
-message = "This message will be sent with headers..."
+channel.exchange_declare("simplehashing", "x-consistent-hash")
+routing_key = "Hash Me!"
+message = "This is a hashed message..."
+
 
 try:
     while True:
         channel.basic_publish(
-            exchange="headersexchange", 
-            routing_key="",
-            properties=pika.BasicProperties(headers={"name": "John Doe", "age": 30}), 
+            exchange="simplehashing", 
+            routing_key=routing_key,
             body=message)
         print(f"Sent message: '{message}'")
         time.sleep(5)
