@@ -13,7 +13,7 @@ Also see, [RabbitMQ Tutorials](https://www.rabbitmq.com/tutorials).
 
 To bring up the stack execute the command:
 
-`docker-compose up --build`
+`docker-compose up -d --build`
 
 Verify that all Docker containers are running:
 
