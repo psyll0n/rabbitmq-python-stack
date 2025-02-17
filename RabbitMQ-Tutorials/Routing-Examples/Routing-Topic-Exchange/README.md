@@ -6,6 +6,6 @@
 	• Analytics Consumer receives all user.europe.* messages.
 	• Shop Consumer receives *.europe.purchases.
 
-This fully implements the Topic Exchange pattern as shown in your diagram! 🚀🐇
+This fully implements the Topic Exchange pattern! 🚀🐇
 
 ![Routing Topic Exchange Example Diagram](image.png)
